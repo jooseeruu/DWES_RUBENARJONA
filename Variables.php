@@ -1,5 +1,8 @@
 <?php
-// Este archivo demuestra el uso de diferentes tipos de variables en PHP, incluyendo funciones, clases y valores null
+// Este archivo demuestra el uso de diferentes tipos de variables en PHP, incluyendo funciones, clases, constantes y variables globales
+
+// Definición de una constante
+define("NOMBRE_SITIO", "Mi Sitio Web");
 
 // Variables de cadena (strings)
 $nombre = "Juan Pérez";
@@ -27,6 +30,9 @@ $persona = [
 // Variables null
 $direccion = null;
 $telefono = null;
+
+// Variable global
+$mensajeGlobal = "Este es un mensaje global";
 
 // Función para calcular el promedio de un array
 function calcularPromedio($array)
@@ -58,6 +64,7 @@ class Persona
 
     public function presentarse()
     {
+        global $mensajeGlobal; // Uso de variable global
         $presentacion = "Mi nombre es: " . $this->nombre . ", tengo " . $this->edad . " años y mido " . $this->altura . " metros.<br>";
         if ($this->direccion !== null) {
             $presentacion .= "Vivo en: " . $this->direccion . "<br>";
@@ -65,6 +72,7 @@ class Persona
         if ($this->telefono !== null) {
             $presentacion .= "Mi teléfono es: " . $this->telefono . "<br>";
         }
+        $presentacion .= $mensajeGlobal . "<br>";
         return $presentacion;
     }
 }
@@ -106,4 +114,7 @@ if ($direccion === null) {
 if ($telefono === null) {
     echo "El teléfono no está definido.<br>";
 }
+
+// Uso de una constante
+echo "Bienvenido a " . NOMBRE_SITIO . "<br>";
 ?>
