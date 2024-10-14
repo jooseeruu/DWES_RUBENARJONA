@@ -7,6 +7,9 @@ $array = array(
 );
 var_dump($array);
 
+$array1 = array("a", "b", 6 => "c", "d");
+var_dump($array1);
+
 // Arrays indexados
 $numerico = array(3, 8, 1223, "rojo");
 
@@ -58,5 +61,4 @@ $tipos_diferentes = array(
     "array" => array(1, 2, 3)
 );
 var_dump($tipos_diferentes);
-
 ?>
