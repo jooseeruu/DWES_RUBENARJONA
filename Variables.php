@@ -1,120 +1,96 @@
 <?php
-// Este archivo demuestra el uso de diferentes tipos de variables en PHP, incluyendo funciones, clases, constantes y variables globales
+// Declarar variables
+$nombre = "Juan";
+$edad = 25;
+$es_estudiante = true;
 
-// Definición de una constante
-define("NOMBRE_SITIO", "Mi Sitio Web");
+// Tipos de datos
+$texto = "Hola, mundo"; // String
+$numero = 123; // Integer
+$decimal = 3.14; // Float
+$booleano = true; // Boolean
+$array = array("Manzana", "Banana"); // Array
+$objeto = (object) ['nombre' => 'Juan', 'edad' => 25]; // Object
+$nulo = null; // Null
 
-// Variables de cadena (strings)
-$nombre = "Juan Pérez";
-$saludo = 'Hola, mundo!';
+// Operadores
+$suma = 5 + 3;
+$resta = 10 - 4;
+$multiplicacion = 7 * 2;
+$division = 20 / 4;
+$modulo = 15 % 4;
 
-// Variables numéricas (enteros y flotantes)
-$edad = 30;
-$altura = 1.75;
+$x = 10;
+$x += 5; // $x ahora es 15
+$x -= 3; // $x ahora es 12
 
-// Variables booleanas
-$esEstudiante = true;
-$tieneHambre = false;
+$igual = ($x == 10); // true o false
+$identico = ($x === 10); // true o false
 
-// Variables de array
-$frutas = ["manzana", "banana", "pera"];
-$calificaciones = array(8, 9, 7);
+$y = true && false; // false
+$z = true || false; // true
 
-// Variables asociativas
-$persona = [
-    "nombre" => "Juan Pérez",
-    "edad" => 30,
-    "altura" => 1.75
-];
+// Variables globales y locales
+$variable_global = "Soy global";
 
-// Variables null
-$direccion = null;
-$telefono = null;
-
-// Variable global
-$mensajeGlobal = "Este es un mensaje global";
-
-// Función para calcular el promedio de un array
-function calcularPromedio($array)
+function pruebaVariable()
 {
-    $suma = 0;
-    foreach ($array as $valor) {
-        $suma += $valor;
-    }
-    return $suma / count($array);
+    $variable_local = "Soy local";
+    echo $variable_local; // Acceso permitido
 }
 
-// Clase Persona
-class Persona
-{
-    public $nombre;
-    public $edad;
-    public $altura;
-    public $direccion;
-    public $telefono;
+pruebaVariable();
+echo $variable_global; // Acceso permitido
 
-    public function __construct($nombre, $edad, $altura, $direccion = null, $telefono = null)
-    {
-        $this->nombre = $nombre;
-        $this->edad = $edad;
-        $this->altura = $altura;
-        $this->direccion = $direccion;
-        $this->telefono = $telefono;
-    }
+// Variables superglobales
+$nombre = $_GET['nombre'];
+$edad = $_POST['edad'];
 
-    public function presentarse()
-    {
-        global $mensajeGlobal; // Uso de variable global
-        $presentacion = "Mi nombre es: " . $this->nombre . ", tengo " . $this->edad . " años y mido " . $this->altura . " metros.<br>";
-        if ($this->direccion !== null) {
-            $presentacion .= "Vivo en: " . $this->direccion . "<br>";
-        }
-        if ($this->telefono !== null) {
-            $presentacion .= "Mi teléfono es: " . $this->telefono . "<br>";
-        }
-        $presentacion .= $mensajeGlobal . "<br>";
-        return $presentacion;
-    }
+$metodo_solicitud = $_SERVER['REQUEST_METHOD'];
+$script_nombre = $_SERVER['SCRIPT_NAME'];
+
+// Variables dinámicas
+$foo = 'bar';
+$$foo = 'baz'; // Crea una variable $bar con valor 'baz'
+
+echo $bar; // Imprime: baz
+
+// Manejo de variables
+if (isset($nombre)) {
+    echo "$nombre está definido.";
 }
 
-// Crear una instancia de la clase Persona
-$juan = new Persona("Juan Pérez", 30, 1.75);
+unset($nombre);
 
-// Imprimimos los valores de las variables
-echo $juan->presentarse();
-echo "Un saludo: " . $saludo . "<br>";
-
-// Condicional utilizando una variable booleana
-if ($esEstudiante) {
-    echo "Soy estudiante.<br>";
+if (is_int($edad)) {
+    echo "$edad es un entero.";
 }
 
-// Recorriendo un array
-foreach ($frutas as $fruta) {
-    echo $fruta . ", ";
+// Funciones adicionales para variables
+
+// Obtener el tipo de variable
+echo gettype($nombre); // Imprime: string
+
+// Comprobar si una variable es de un tipo específico
+if (is_string($texto)) {
+    echo "$texto es una cadena de texto.";
 }
 
-// Calculando la suma de los elementos de un array
-echo "<br>El promedio de calificaciones es: " . calcularPromedio($calificaciones) . "<br>";
+// Convertir el tipo de una variable
+$numero_str = strval($numero); // Convierte a string
+$numero_int = intval($texto); // Convierte a integer
+$numero_float = floatval($texto); // Convierte a float
 
-// Uso de variables superglobales
-echo "El método de la solicitud es: " . $_SERVER['REQUEST_METHOD'] . "<br>";
-echo "El nombre del script es: " . $_SERVER['PHP_SELF'] . "<br>";
-
-// Manejo de formularios (simulación)
-$_POST['nombre'] = "Carlos";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "Nombre enviado por POST: " . $_POST['nombre'] . "<br>";
+// Verificar si una variable está vacía
+if (empty($nombre)) {
+    echo "La variable nombre está vacía.";
 }
 
-// Ejemplos de variables null
-if ($direccion === null) {
-    echo "La dirección no está definida.<br>";
-}
-if ($telefono === null) {
-    echo "El teléfono no está definido.<br>";
+// Definir una variable si no existe
+if (!isset($apellido)) {
+    $apellido = "Perez";
 }
 
-// Uso de una constante
-echo "Bienvenido a " . NOMBRE_SITIO . "<br>";
+// Imprimir el valor de una variable para depuración
+var_dump($nombre);
 ?>
