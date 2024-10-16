@@ -26,7 +26,7 @@ switch ($today) {
         echo 'Es domingo';
         break;
     default:
-        echo '';
+        echo 'Dia inexistente';
         break;
 }
 ?>
