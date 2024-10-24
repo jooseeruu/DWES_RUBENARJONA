@@ -18,14 +18,15 @@
     {
         if ($unidades_kw <= 100) {
             return $unidades_kw * 1.00;
-        } elseif ($unidades_kw <= 300) {
+        } elseif ($unidades_kw <= 200) {
             return 100 * 1.00 + ($unidades_kw - 100) * 2.00;
-        } elseif ($unidades_kw <= 600) {
-            return 100 * 1.00 + 200 * 2.00 + ($unidades_kw - 300) * 3.00;
+        } elseif ($unidades_kw <= 300) {
+            return 100 * 1.00 + 100 * 2.00 + ($unidades_kw - 200) * 3.00;
         } else {
-            return 100 * 1.00 + 200 * 2.00 + 300 * 3.00 + ($unidades_kw - 600) * 4.00;
+            return 100 * 1.00 + 100 * 2.00 + 100 * 3.00 + ($unidades_kw - 300) * 4.00;
         }
     }
+
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $unidades_kw = $_POST["unidades_kw"];
