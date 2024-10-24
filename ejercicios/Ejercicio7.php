@@ -16,15 +16,23 @@
     <?php
     function calcularCosto($unidades_kw)
     {
-        if ($unidades_kw <= 100) {
-            return $unidades_kw * 1.00;
-        } elseif ($unidades_kw <= 200) {
-            return 100 * 1.00 + ($unidades_kw - 100) * 2.00;
-        } elseif ($unidades_kw <= 300) {
-            return 100 * 1.00 + 100 * 2.00 + ($unidades_kw - 200) * 3.00;
-        } else {
-            return 100 * 1.00 + 100 * 2.00 + 100 * 3.00 + ($unidades_kw - 300) * 4.00;
+        $costo = 0;
+
+        if ($unidades_kw > 300) {
+            $costo += ($unidades_kw - 300) * 4.00;
+            $unidades_kw = 300;
         }
+        if ($unidades_kw > 200) {
+            $costo += ($unidades_kw - 200) * 3.00;
+            $unidades_kw = 200;
+        }
+        if ($unidades_kw > 100) {
+            $costo += ($unidades_kw - 100) * 2.00;
+            $unidades_kw = 100;
+        }
+        $costo += $unidades_kw * 1.00;
+
+        return $costo;
     }
 
 
