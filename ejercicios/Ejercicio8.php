@@ -8,10 +8,10 @@
 <body>
     <h1>Calculadora</h1>
     <form method="post" action="">
-        <label for="num1">Número 1:</label>
+        <label for="num1">Número 1</label>
         <input type="number" id="num1" name="num1" required>
         <br>
-        <label for="num2">Número 2:</label>
+        <label for="num2">Número 2</label>
         <input type="number" id="num2" name="num2" required>
         <br>
         <input type="submit" name="operacion" value="Suma">
