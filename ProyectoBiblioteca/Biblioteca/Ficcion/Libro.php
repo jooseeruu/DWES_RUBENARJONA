@@ -11,23 +11,7 @@ class Libro
         $this->titulo = $titulo;
         $this->año = $año;
     }
-    // Getters y Setters
-    function getTitulo()
-    {
-        return $this->titulo;
-    }
-    function getAño()
-    {
-        return $this->año;
-    }
-    function setTitulo($titulo)
-    {
-        $this->titulo = $titulo;
-    }
-    function setAño($año)
-    {
-        $this->año = $año;
-    }
+
     // Método para mostrar detalles
     public function mostrarDetalles()
     {
