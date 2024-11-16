@@ -1,5 +1,5 @@
 <?php
-require_once 'Dispositivos/dispositivoElectronico.php';
+require_once 'Dispositivos/dispositivoElectronico.php'; // duda por qué me dice que la clae ya está definida, solo funciona si le hago require_once
 require 'Dispositivos/telefonoMovil.php';
 require 'Dispositivos/lavadora.php';
 
