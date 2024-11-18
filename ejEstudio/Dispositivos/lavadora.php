@@ -1,6 +1,6 @@
 <?php
 namespace DispositivoElectronico;
-require_once 'dispositivoElectronico.php';
+
 class Lavadora extends DispositivoElectronico
 {
     protected $modelo;
