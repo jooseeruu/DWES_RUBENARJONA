@@ -1,0 +1,15 @@
+Tipos de cookies según la normativa: https://www.aepd.es/guias/guia-cookies.pdf
+
+Tipos de cookies según la entidad que las gestione:
+a) Cookies propias - gestionadas por nosotros como "editor" (quien subministra el servicio)
+b) Cookies de tercero - no son gestionadas por nosotros (pe. proveedor de servicio)
+
+Tipos de cookies según su finalidad:
+a) Cookies técnicas - indispensables para el funcionamiento de la web o aplicación web
+b) Cookies de preferencias o personalización - para mejora de la experiencia del usuario; definir caracteristicas predeterminadas (ej. idioma)
+c) Cookies de análisis o medición - para estudio de comportamiento de los usuarios dentro de la web/servicio
+d) Cookies de publicidad comportamental - para usar con fines comerciales (pe. anuncios más relevantes según las busquedas del usuario)
+
+Tipos de cookies según el plazo de tiempo que permanecen activadas:
+a) Cookies de sesión - solo mientras el usuario accede a un servicio (mientras el navegador esta en marcha)
+b) Cookies persistentes - de unos minutos a unos años
