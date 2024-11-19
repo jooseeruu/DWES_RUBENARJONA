@@ -71,3 +71,13 @@ if ($usuario) {
 </body>
 
 </html>
+<?php
+//Guardar el nombre de usuario en una cookie si el usuario ha iniciado sesión
+if ($usuario) {
+    setcookie("nombre_usuario", $usuario->getNombre(), time() + (86400 * 30), "/"); // 86400 = 1 día
+} else {
+    // Eliminar la cookie si el usuario cierra sesión
+    if (isset($_COOKIE["nombre_usuario"])) {
+        setcookie("nombre_usuario", "", time() - 3600, "/");
+    }
+}
