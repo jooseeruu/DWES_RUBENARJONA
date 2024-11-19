@@ -12,7 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Si se envia el formulario utiliza
     }
     $num1 = $_POST['num1']; // Obtenemos el valor del num1
     if ($_POST['num2'] == null) { // Si el valor de num2 es nulo, se le asigna el valor 0 y se realiza la operación
-        $_POST['num2'] = 0; // tecnicamente eso ya lo maneja el required en el input del formulario pero como no he conseguido lo de emplear el calculo anterior como número he decidido hacerlo así
+        $_POST['num2'] = 0; // no he conseguido lo de emplear el calculo anterior como número he decidido hacerlo así, despues de intentar varias cosas
+        // guardarlo en una variable y luego igualarla a num2, pero no me ha funcionado entre otras cosas así que en caso de que num2 sea nulo se le asigna el valor 0
 
     }
     $num2 = $_POST['num2']; // obtenemos el valor del num2
