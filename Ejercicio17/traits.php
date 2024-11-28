@@ -47,13 +47,20 @@ class Dispositivo
 }
 class telefono extends Dispositivo
 {
-    public function __construct(string $nombreDispositivo)
+    protected $numtelefono;
+    public function __construct(string $nombreDispositivo, $numtelefono)
     {
         $this->nombreDispositivo = $nombreDispositivo;
+        $this->numtelefono = $numtelefono;
     }
+
     public function hacerLlamada(string $numero): string
     {
         return "Llamando al número $numero desde el dispositivo $this->nombreDispositivo";
+    }
+    public function getNumTelefono()
+    {
+        return $this->numtelefono;
     }
 }
 class tablet extends Dispositivo
@@ -77,12 +84,13 @@ class tablet extends Dispositivo
     }
 }
 
-$telefono = new telefono("Samsung Galaxy S10");
+$telefono = new telefono("Samsung Galaxy S10", "644742137");
 echo $telefono->conectarWiFi($telefono->getNombreDispositivo()) . "<br>";
 echo $telefono->conectarBluetooth($telefono->getNombreDispositivo()) . "<br>";
 echo $telefono->hacerLlamada("123456789") . "<br>";
 echo $telefono->desconectarWiFi($telefono->getNombreDispositivo()) . "<br>";
 echo $telefono->desconectarBluetooth($telefono->getNombreDispositivo()) . "<br>";
+echo $telefono->getNumTelefono() . "<br>";
 
 
 $tablet = new tablet("Samsung Galaxy", "Tab A");
