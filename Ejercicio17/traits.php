@@ -99,7 +99,7 @@ echo $tablet->conectarBluetooth($tablet->getNombreDispositivo()) . "<br>";
 echo $tablet->leerLibro("El señor de los anillos") . "<br>";
 echo $tablet->desconectarWiFi($tablet->getNombreDispositivo()) . "<br>";
 echo $tablet->desconectarBluetooth($tablet->getNombreDispositivo()) . "<br>";
-echo $tablet->getmodelo() . "<br>";
+echo $tablet->getModelo() . "<br>";
 
 
 ?>
