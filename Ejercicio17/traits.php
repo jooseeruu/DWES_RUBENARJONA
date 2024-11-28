@@ -59,18 +59,21 @@ class telefono extends Dispositivo
 class tablet extends Dispositivo
 {
     protected string $modelo;
-    public function __construct(string $nombreDispositivo)
+
+    public function __construct(string $nombreDispositivo, string $modelo)
     {
         $this->nombreDispositivo = $nombreDispositivo;
+        $this->modelo = $modelo;
     }
-    public function getmodelo(): string
+
+    public function getModelo(): string
     {
         return $this->modelo;
     }
 
     public function leerLibro(string $titulo): string
     {
-        return "Leyendo el libro $titulo en el dispositivo $this->nombreDispositivo";
+        return "Leyendo el libro $titulo en el dispositivo $this->nombreDispositivo, modelo $this->modelo";
     }
 }
 
@@ -82,7 +85,7 @@ echo $telefono->desconectarWiFi($telefono->getNombreDispositivo()) . "<br>";
 echo $telefono->desconectarBluetooth($telefono->getNombreDispositivo()) . "<br>";
 
 
-$tablet = new tablet("Samsung Galaxy Tab S6");
+$tablet = new tablet("Samsung Galaxy", "Tab A");
 echo $tablet->conectarWiFi($tablet->getNombreDispositivo()) . "<br>";
 echo $tablet->conectarBluetooth($tablet->getNombreDispositivo()) . "<br>";
 echo $tablet->leerLibro("El señor de los anillos") . "<br>";
