@@ -8,6 +8,7 @@ $frutas = array("Manzana", "Banana", "Naranja");
 echo $animales[0]; // Imprime: Perro
 echo $frutas[0]; // Imprime: Manzana
 
+
 // Modificar un elemento
 $animales[1] = "León";
 

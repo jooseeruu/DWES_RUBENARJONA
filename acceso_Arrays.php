@@ -10,6 +10,9 @@ echo $colores[2]; // Imprime: Azul
 // Declarar un array asociativo
 $edades = array("Juan" => 25, "Maria" => 30, "Pedro" => 35);
 
+
+
+
 // Acceder a los elementos del array asociativo
 echo $edades["Juan"]; // Imprime: 25
 echo $edades["Maria"]; // Imprime: 30
