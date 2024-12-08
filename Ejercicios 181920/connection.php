@@ -37,10 +37,35 @@ $pdo = conectarBBDD('mysql', 'localhost', 'dwes', 'root', '2908', 'utf8mb4');
 
 if ($pdo) {
     $usuarios = getUsersByName($pdo);
-    echo "<pre>"; // Formatear la salida
-    print_r($usuarios);
-    echo "</pre>";
+
+// Mostrar los usuarios en una tabla
+    echo "<table border='1' cellpadding='5' cellspacing='0' style='border-collapse: collapse; width: 100%;'>";
+    echo "<thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Nombre de Usuario</th>
+                <th>Contraseña</th>
+                <th>Estado</th>
+            </tr>
+          </thead>";
+    echo "<tbody>";
+
+
+    foreach ($usuarios as $usuario) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($usuario['nombre']) . "</td>";
+        echo "<td>" . htmlspecialchars($usuario['apellidos']) . "</td>";
+        echo "<td>" . htmlspecialchars($usuario['nombre_usuario']) . "</td>";
+        echo "<td>" . htmlspecialchars($usuario['contrasena']) . "</td>";
+        echo "<td>" . htmlspecialchars($usuario['estado']) . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</tbody></table>";
 }
+
+
 
 
 
