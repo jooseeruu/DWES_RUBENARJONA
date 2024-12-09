@@ -36,8 +36,8 @@ function getUsersByName($pdo, $nombreUsuario) {
 $pdo = conectarBBDD('mysql', 'localhost', 'dwes', 'root', '2908', 'utf8mb4');
 
 if ($pdo) {
-    // Nombre del usuario que deseas buscar
-    $nombreUsuario = 'Mago'; // Cambiar por el nombre de usuario que quieras consultar
+    // nombre del usuario que deseas buscar
+    $nombreUsuario = 'Mago';
     $usuarios = getUsersByName($pdo, $nombreUsuario);
 
     if ($usuarios) {
