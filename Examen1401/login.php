@@ -6,7 +6,7 @@ require_once 'connector.php'; // Archivo con la conexión a la base de datos
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Si se envió el formulario
     $username = $_POST['username'] ?? ''; // Si no se envió el campo, se asigna un string vacío
-    $password = $_POST['password'] ?? ''; // Si no se envió el campo, se asigna un string vacío
+    $password = $_POST['password'] ?? ''; // Si no se envió el campo, se asigna un string vacío algunos usuarios como invitado no tienen contraseña y deben poder iniciar
 
     try {
         $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE username = :username"); // Se prepara la consulta
