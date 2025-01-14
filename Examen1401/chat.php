@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['mensaje'])) { // Si 
         $pdo->commit(); // Hay que hacer commit para que se guarden los cambios
         $mensajeEnviado = true; // Se cambia la variable para mostrar mensaje de éxito
     } catch (PDOException $e) {
-        die("ERROR" . $e->getMessage()); // Si hay error, se muestra el mensaje
+        die("ERROR" . $e->getMessage()); // die sirve para mostrar un mensaje y terminar la ejecución del script  https://www.w3schools.com/php/func_misc_die.asp
     }
 }
 
