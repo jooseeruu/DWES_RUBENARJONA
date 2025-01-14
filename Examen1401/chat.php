@@ -12,10 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['mensaje'])) { // Si 
 
     try {
         $pdo->beginTransaction(); //  TRANSACCION PARA INSERTAR EL MENSAJE (1pt)
-
         $stmt = $pdo->prepare("INSERT INTO mensajes (usuario, mensaje) VALUES (:usuario, :mensaje)"); // Se prepara la consulta
         $stmt->execute([':usuario' => $usuario, ':mensaje' => $mensaje]); // Se ejecuta la consulta
-
         $pdo->commit(); // Hay que hacer commit para que se guarden los cambios
         $mensajeEnviado = true; // Se cambia la variable para mostrar mensaje de éxito
     } catch (PDOException $e) {

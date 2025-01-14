@@ -9,20 +9,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Si se envió el formulario
     $password = $_POST['password'] ?? ''; // Si no se envió el campo, se asigna un string vacío algunos usuarios como invitado no tienen contraseña y deben poder iniciar
 
     try {
-        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE username = :username"); // Se prepara la consulta
-        $stmt->execute([':username' => $username]); // Se ejecuta la consulta que busca al usuario
-        $user = $stmt->fetch(PDO::FETCH_ASSOC); // he consultado al chatgpt para saber si me conviene más usar fetch o fetchAll
-
-        if ($user && password_verify($password, $user['password'])) { // Si el usuario existe y la contraseña es correcta
+        // NO RECOMENDADO pero son menos líneas y asi me da tiempo
+        $query = "SELECT * FROM usuarios WHERE username = '" . addslashes($username) . "'"; // addslashes para evitar inyección SQL https://www.php.net/manual/en/function.addslashes.php
+        $result = $pdo->query($query); // Ejecutar directamente la consulta
+        $user = $result->fetch(PDO::FETCH_ASSOC); // Obtener el usuario
+        if ($user && password_verify($password, $user['password'])) { // Verificar contraseña
             $_SESSION['user'] = $user['username'];
-            header('Location: chat.php'); //Lo mandamos al chat
+            header('Location: chat.php'); // Redirigir al chat
             exit();
         } else {
             $error = "Usuario o contraseña incorrectos.";
         }
     } catch (PDOException $e) {
-        die("ERROR" . $e->getMessage());
+        die("ERROR: " . $e->getMessage());
     }
+
 }
 ?>
 
